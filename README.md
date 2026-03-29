@@ -17,10 +17,10 @@ The pipeline is organized in two sequential stages:
 
 | Script | Description |
 |---|---|
-| `1_preprocessing_topscan_dlc.py` | Raw data cleaning, outlier removal, spatial calibration |
-| `2_analysis_topscan_dlc.py` | Trajectory comparison, behavioral metrics, and statistical validation |
+| `Pre-processing Pipeline — DeepLabCut vs. TopScan.ipynb` | Raw data cleaning, outlier removal, spatial calibration |
+| `Analysis Pipeline — DeepLabCut vs. TopScan.ipynb` | Trajectory comparison, behavioral metrics, and statistical validation |
 
-Portuguese-language versions (`[1]pre_processamento_arquivos_topscan_dlc.py` and `[2]análise_topscan_dlc.py`) are included for use in the original laboratory environment.
+Portuguese-language versions (`Pipeline de Análise — DeepLabCut vs. TopScan.ipynb` and `Pipeline de Pré-Processamento — DeepLabCut vs. TopScan.ipynb`) are included for use in the original laboratory environment.
 
 ---
 
@@ -83,11 +83,11 @@ pip install -q ffmpeg-python moviepy
 ├── requirements.txt
 ├── CITATION.cff
 │
-├── 1_preprocessing_topscan_dlc.py      # English — preprocessing pipeline
-├── 2_analysis_topscan_dlc.py           # English — analysis & statistics pipeline
+├── Pre-processing Pipeline — DeepLabCut vs. TopScan.ipynb     # English — preprocessing pipeline
+├── Analysis Pipeline — DeepLabCut vs. TopScan.ipynb           # English — analysis & statistics pipeline
 │
-├── [1]pre_processamento_arquivos_topscan_dlc.py   # Portuguese (original)
-├── [2]análise_topscan_dlc.py                      # Portuguese (original)
+├── Pipeline de Pré-Processamento — DeepLabCut vs. TopScan.ipynb   # Portuguese (original)
+├── Pipeline de Análise — DeepLabCut vs. TopScan.ipynb             # Portuguese (original)
 │
 └── data/
     └── example/
