@@ -10,7 +10,6 @@ build/
 
 # Jupyter / Colab
 .ipynb_checkpoints/
-*.ipynb
 
 # Data — raw and processed files are NOT versioned
 # Share via Zenodo/OSF or provide only the example files in data/example/
