@@ -1,11 +1,11 @@
-# Crosstrack-validator
-## DLC-TopScan Validation Pipeline
+# CrossTrack Validator — DLC vs. TopScan Pipeline
 
 A Python pipeline for technical validation of markerless animal tracking (DeepLabCut) against a gold-standard reference system (TopScan) in rodent behavioral experiments.
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/platform-Google%20Colab%20%7C%20Jupyter-orange)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19323217.svg)](https://doi.org/10.5281/zenodo.19323217)
 
 ---
 
@@ -17,10 +17,10 @@ The pipeline is organized in two sequential stages:
 
 | Script | Description |
 |---|---|
-| `Pre-processing Pipeline — DeepLabCut vs. TopScan.ipynb` | Raw data cleaning, outlier removal, spatial calibration |
-| `Analysis Pipeline — DeepLabCut vs. TopScan.ipynb` | Trajectory comparison, behavioral metrics, and statistical validation |
+| `1_preprocessing_topscan_dlc.py` | Raw data cleaning, outlier removal, spatial calibration |
+| `2_analysis_topscan_dlc.py` | Trajectory comparison, behavioral metrics, and statistical validation |
 
-Portuguese-language versions (`Pipeline de Análise — DeepLabCut vs. TopScan.ipynb` and `Pipeline de Pré-Processamento — DeepLabCut vs. TopScan.ipynb`) are included for use in the original laboratory environment.
+Portuguese-language versions (`[1]pre_processamento_arquivos_topscan_dlc.py` and `[2]análise_topscan_dlc.py`) are included for use in the original laboratory environment.
 
 ---
 
@@ -83,11 +83,11 @@ pip install -q ffmpeg-python moviepy
 ├── requirements.txt
 ├── CITATION.cff
 │
-├── Pre-processing Pipeline — DeepLabCut vs. TopScan.ipynb     # English — preprocessing pipeline
-├── Analysis Pipeline — DeepLabCut vs. TopScan.ipynb           # English — analysis & statistics pipeline
+├── 1_preprocessing_topscan_dlc.py      # English — preprocessing pipeline
+├── 2_analysis_topscan_dlc.py           # English — analysis & statistics pipeline
 │
-├── Pipeline de Pré-Processamento — DeepLabCut vs. TopScan.ipynb   # Portuguese (original)
-├── Pipeline de Análise — DeepLabCut vs. TopScan.ipynb             # Portuguese (original)
+├── [1]pre_processamento_arquivos_topscan_dlc.py   # Portuguese (original)
+├── [2]análise_topscan_dlc.py                      # Portuguese (original)
 │
 └── data/
     └── example/
@@ -194,13 +194,16 @@ MyDrive/
 
 If you use this pipeline in your research, please cite:
 
+**Article** (update after publication):
 > [Authors]. [Title of paper]. [Journal], [Year]. DOI: [to be added upon publication]
 
-You can also cite the software repository directly using the `CITATION.cff` file included in this repository.
+**Pipeline software:**
+> Orvate, R. (2026). *CrossTrack Validator: A Python Pipeline for DeepLabCut vs. TopScan Validation* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.19323217
+
+You can also use the **Cite this repository** button on GitHub (powered by the `CITATION.cff` file).
 
 ---
 
 ## License
 
 This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
-
