@@ -1,0 +1,29 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "DLC-TopScan Validation Pipeline"
+abstract: >
+  A Python pipeline for technical validation of DeepLabCut markerless pose
+  estimation against TopScan reference tracking in rodent behavioral experiments.
+  Includes preprocessing (likelihood filtering, IQR+DBSCAN outlier removal,
+  Savitzky-Golay smoothing, Huber regression calibration) and statistical
+  analysis (RMSE, Fréchet distance, DTW, Bland-Altman, cross-correlation,
+  velocity KDE) for open-field and novel object recognition paradigms.
+authors:
+  - family-names: "Orvate"
+    given-names: "Rodrigo"
+    affiliation: "Federal University of Rio Grande do Norte (UFRN), Brazil"
+    orcid: "https://orcid.org/0009-0001-0363-2017"
+version: 1.0.0
+date-released: "2026-03-29"
+license: MIT
+repository-code: "https://github.com/RodrigoOrvate/Crosstrack-validator"
+keywords:
+  - DeepLabCut
+  - animal tracking
+  - pose estimation
+  - behavioral neuroscience
+  - validation
+  - open field
+  - novel object recognition
+  - rodent
