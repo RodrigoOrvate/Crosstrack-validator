@@ -288,7 +288,7 @@ This repository contains source code, notebooks, scripts, and small example TXT 
 
 The archived software release is available through Zenodo:
 
-> https://doi.org/10.5281/zenodo.19323217
+> https://doi.org/10.5281/zenodo.20838510
 
 Full experimental datasets should be cited separately if deposited in an independent data repository.
 
