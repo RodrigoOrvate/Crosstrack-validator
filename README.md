@@ -5,7 +5,7 @@ A Python-based validation pipeline for comparing markerless animal tracking outp
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/platform-Google%20Colab%20%7C%20Jupyter-orange)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19323217.svg)](https://doi.org/10.5281/zenodo.19323217)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20838510.svg)](https://doi.org/10.5281/zenodo.20838510)
 
 ---
 
@@ -299,13 +299,12 @@ Full experimental datasets should be cited separately if deposited in an indepen
 If you use this pipeline in your research, please cite:
 
 **Article**  
-Update after publication:
+Update will occur after publication:
 
-> [Authors]. [Title of paper]. [Journal], [Year]. DOI: [to be added upon publication]
+> Arruda, R. et al. Manuscript in preparation. Article title, journal information, and DOI will be added after peer review and publication.
 
-**Pipeline software**
-
-> Orvate, R. (2026). *CrossTrack Validator: A Python Pipeline for DeepLabCut vs. TopScan Validation* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.19323217
+**Pipeline software:**
+> Orvate, R. (2026). *CrossTrack Validator: A Python Pipeline for DeepLabCut vs. TopScan Validation* (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.20838510
 
 You can also use the **Cite this repository** button on GitHub, powered by the `CITATION.cff` file.
 
