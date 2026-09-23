@@ -15,12 +15,11 @@ authors:
     given-names: "Rodrigo"
     affiliation: "Federal University of Rio Grande do Norte (UFRN), Brazil"
     orcid: "https://orcid.org/0009-0001-0363-2017"
-version: "1.1.0"
+version: "1.1.1"
 date-released: "2026-09-23"
 license: MIT
 repository-code: "https://github.com/RodrigoOrvate/Crosstrack-validator"
 doi: "10.5281/zenodo.19323216"
-license: MIT
 keywords:
   - DeepLabCut
   - animal tracking
