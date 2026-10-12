@@ -2975,7 +2975,7 @@ for rato_id in ratos_comuns:
     plt.figure(figsize=(10, 6))
     sns.kdeplot(df_an['vel_dlc'],     label='DLC',     color='purple', fill=True, alpha=0.3)
     sns.kdeplot(df_an['vel_topscan'], label='TopScan', color='green',  fill=True, alpha=0.3)
-    plt.xlabel('Velocidade (cm/s)'); plt.ylabel('Densidade')
+    plt.xlabel('Velocity (cm/s)'); plt.ylabel('Density')
     plt.xlim(0, lim_x); plt.legend(); plt.grid(True, linestyle='--')
     plt.title(f'Distribuição de Velocidade — {rato_id}')
     plt.tight_layout(); plt.show()
@@ -3064,7 +3064,7 @@ if _vel_dlc_frames:
     ax_kde.set_xlim(0, _lim_x)
     ax_kde.set_title('Instantaneous Velocity Distribution', fontsize=14, fontweight='bold')
     ax_kde.set_xlabel('Instantaneous Velocity (cm/s)', fontsize=13)
-    ax_kde.set_ylabel('Densidade', fontsize=13)
+    ax_kde.set_ylabel('Density', fontsize=13)
     ax_kde.legend(fontsize=13)
     ax_kde.grid(True, linestyle='--', alpha=0.5)
 
@@ -4833,6 +4833,10 @@ for rato_id in sorted(ratos_comuns):
         print(f"  [Warning] Data missing for {rato_id}. Skipping in Step 5.")
         continue
 
+    # Exclude the initial frames, as in the other analyses.
+    nose_full, nose_held, body_full, body_held = [
+        df[df['Frame'] > IGNORAR_FRAMES_INICIAIS] for df in (nose_full, nose_held, body_full, body_held)]
+
     # Calculates Positional Errors (Full vs Held-out) in pixels
     # (Since both are DLC, we can compare directly in px or apply the Step 1 scale)
     escala = resultados_cm[rato_id][BODYPART_REFERENCIA]['dlc']['escala_cm_px'].iloc[0] if rato_id in resultados_cm else 1
@@ -4922,8 +4926,8 @@ if dados_s5:
     sns.boxplot(data=df_erro_melt, x='Ponto', y='Erro (cm)', hue='Ponto', ax=axB,
                 palette=['#4D4D4D', '#A6A6A6'], width=0.4, showfliers=False, legend=False)
     sns.stripplot(data=df_erro_melt, x='Ponto', y='Erro (cm)', ax=axB, color='black', alpha=0.6, jitter=0.1)
-    axB.set_title('Pose Error on Excluded Mosaics', fontweight='bold')
-    axB.set_ylabel('Mean Absolute Error (cm)')
+    axB.set_title('Full vs Held-out Prediction Distance', fontweight='bold')
+    axB.set_ylabel('Mean distance, full vs held-out (cm)')
     axB.set_xlabel('')
 
     # B. DLC-HELDOUT x TopScan for DI
@@ -4963,8 +4967,8 @@ if dados_s5:
     sns.boxplot(data=df_s5, x='Fold/Mosaic', y='RMSE_Body_cm', hue='Fold/Mosaic', ax=ax1,
                 palette='light:gray', showfliers=False, legend=False)
     sns.swarmplot(data=df_s5, x='Fold/Mosaic', y='RMSE_Body_cm', ax=ax1, color='black', size=6)
-    ax1.set_title('Body RMSE by Excluded Fold')
-    ax1.set_ylabel('RMSE (cm)')
+    ax1.set_title('Mid-body RMSE, Full vs Held-out DLC')
+    ax1.set_ylabel('RMSE, full vs held-out network (cm)')
     _p_txt_rmse_s11 = '< 0.0001' if _p_rmse_s11 < 0.0001 else f'= {_p_rmse_s11:.4f}'
     ax1.text(0.98, 0.97, f'Kruskal-Wallis p {_p_txt_rmse_s11}', transform=ax1.transAxes,
              ha='right', va='top', fontsize=10, style='italic',
@@ -4973,8 +4977,8 @@ if dados_s5:
     sns.boxplot(data=df_s5, x='Fold/Mosaic', y='Total_Exp_Heldout_s', hue='Fold/Mosaic', ax=ax2,
                 palette='light:gray', showfliers=False, legend=False)
     sns.swarmplot(data=df_s5, x='Fold/Mosaic', y='Total_Exp_Heldout_s', ax=ax2, color='black', size=6)
-    ax2.set_title('Total Exploration Time by Excluded Fold')
-    ax2.set_ylabel('Time (s)')
+    ax2.set_title('Total Exploration Time, Held-out DLC')
+    ax2.set_ylabel('Held-out DLC exploration time (s)')
     _p_txt_exp_s11 = '< 0.0001' if _p_exp_s11 < 0.0001 else f'= {_p_exp_s11:.4f}'
     ax2.text(0.98, 0.97, f'Kruskal-Wallis p {_p_txt_exp_s11}', transform=ax2.transAxes,
              ha='right', va='top', fontsize=10, style='italic',

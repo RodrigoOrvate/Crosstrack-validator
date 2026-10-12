@@ -288,7 +288,7 @@ This repository contains source code, notebooks, scripts, and small example TXT 
 
 The archived software release is available through Zenodo:
 
-> https://doi.org/10.5281/zenodo.20838510
+> https://doi.org/10.5281/zenodo.19323216 (all versions; resolves to the latest)
 
 Full experimental datasets should be cited separately if deposited in an independent data repository.
 
@@ -304,7 +304,7 @@ Update will occur after publication:
 > Arruda, R. et al. Manuscript in preparation. Article title, journal information, and DOI will be added after peer review and publication.
 
 **Pipeline software:**
-> Orvate, R. (2026). *CrossTrack Validator: A Python Pipeline for DeepLabCut vs. TopScan Validation* (v1.0.1). Zenodo. https://doi.org/10.5281/zenodo.20838510
+> Orvate, R. (2026). *CrossTrack Validator: A Python Pipeline for DeepLabCut vs. TopScan Validation* (v1.1.1). Zenodo. https://doi.org/10.5281/zenodo.19323216
 
 You can also use the **Cite this repository** button on GitHub, powered by the `CITATION.cff` file.
 
