@@ -147,6 +147,8 @@ The `TopScan/` folder contains three example TXT files exported from TopScan-lik
 
 These files are included only to demonstrate the expected input structure and to allow users to test the pipeline format. They do not represent the full experimental dataset.
 
+The complete study dataset analyzed in the article is in `Data/Study_dataset/` (see its README).
+
 ---
 
 ## Input Data Format
@@ -284,13 +286,11 @@ The pipeline can generate:
 
 ## Data Availability
 
-This repository contains source code, notebooks, scripts, and small example TXT files. The example files are provided only for format demonstration and testing.
+This repository contains source code, notebooks, scripts, small example TXT files, and the study dataset (`Data/Study_dataset/`): the frame-resolved TopScan and DeepLabCut coordinate files, including the held-out network predictions, analyzed in the article. Original videos are not included and are available from the corresponding author on reasonable request.
 
 The archived software release is available through Zenodo:
 
 > https://doi.org/10.5281/zenodo.19323216 (all versions; resolves to the latest)
-
-Full experimental datasets should be cited separately if deposited in an independent data repository.
 
 ---
 
