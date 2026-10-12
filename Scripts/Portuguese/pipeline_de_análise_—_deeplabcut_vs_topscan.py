@@ -5003,11 +5003,13 @@ if dados_s5:
 
     sns.boxplot(data=df_s12, x='Model', y='DI', hue='Model', ax=ax,
                 palette=['#B39DDB', '#7B1FA2'], width=0.4, showfliers=False, legend=False)
-    sns.stripplot(data=df_s12, x='Model', y='DI', ax=ax, color='black', alpha=0.7, size=7)
-
-    # Linhas conectando o mesmo animal
+    # Mesmo deslocamento horizontal do animal nos dois modelos, para a linha ligar os dois pontos
+    _desloc_s12 = np.random.default_rng(0).uniform(-0.08, 0.08, len(df_s5))
     for i in range(len(df_s5)):
-        ax.plot([0, 1], [df_s5.iloc[i]['DI_FULL'], df_s5.iloc[i]['DI_HELDOUT']], color='gray', alpha=0.4)
+        ax.plot([_desloc_s12[i], 1 + _desloc_s12[i]], [df_s5.iloc[i]['DI_FULL'], df_s5.iloc[i]['DI_HELDOUT']],
+                color='gray', alpha=0.4, zorder=3)
+    ax.scatter(_desloc_s12, df_s5['DI_FULL'], color='black', alpha=0.7, s=49, zorder=4)
+    ax.scatter(1 + _desloc_s12, df_s5['DI_HELDOUT'], color='black', alpha=0.7, s=49, zorder=4)
 
     t_stat, p_val = ttest_rel(df_s5['DI_FULL'], df_s5['DI_HELDOUT'])
     sig = _estrela(p_val)
