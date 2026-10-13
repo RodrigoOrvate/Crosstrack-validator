@@ -15,8 +15,8 @@ authors:
     given-names: "Rodrigo"
     affiliation: "Federal University of Rio Grande do Norte (UFRN), Brazil"
     orcid: "https://orcid.org/0009-0001-0363-2017"
-version: "1.2.1"
-date-released: "2026-10-12"
+version: "1.2.2"
+date-released: "2026-10-13"
 license: MIT
 repository-code: "https://github.com/RodrigoOrvate/Crosstrack-validator"
 doi: "10.5281/zenodo.19323216"

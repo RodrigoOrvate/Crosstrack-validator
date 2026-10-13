@@ -2556,8 +2556,6 @@ def gerar_figura_brokenbar_erro_estado(
     else:
         _lbl_estado = 'ns'
     ymax_b = df_estado_grupo['Mean error (cm)'].max() + 0.15
-    ax_b.plot([0, 0, 2, 2], [ymax_b, ymax_b+0.05, ymax_b+0.05, ymax_b], color='black', lw=1.2)
-    ax_b.text(1, ymax_b+0.07, _lbl_estado, ha='center', va='bottom', fontsize=14, fontweight='bold', fontstyle='italic')
 
     ax_b.set_title('Mean Positional Error by Behavioral State', fontsize=14, fontweight='bold', pad=8)
     ax_b.set_xlabel('Behavioral state', fontsize=13)
@@ -4950,39 +4948,19 @@ if dados_s5:
     registrar_figura_artigo('figura7_heldout', fig7)
     plt.show()
 
-    from scipy.stats import kruskal as _kruskal_s11
-
     figS11, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
-
-    _grupos_rmse_s11 = [g['RMSE_Body_cm'].values for _, g in df_s5.groupby('Fold/Mosaic')]
-    _h_rmse_s11, _p_rmse_s11 = _kruskal_s11(*_grupos_rmse_s11)
-    print(f"  FigS11 A -- Kruskal-Wallis (RMSE by excluded fold): H = {_h_rmse_s11:.2f}, "
-          f"p = {_p_rmse_s11:.4f}, k = {len(_grupos_rmse_s11)} folds, n = {len(df_s5)}")
-
-    _grupos_exp_s11 = [g['Total_Exp_Heldout_s'].values for _, g in df_s5.groupby('Fold/Mosaic')]
-    _h_exp_s11, _p_exp_s11 = _kruskal_s11(*_grupos_exp_s11)
-    print(f"  FigS11 B -- Kruskal-Wallis (exploration time by excluded fold): H = {_h_exp_s11:.2f}, "
-          f"p = {_p_exp_s11:.4f}, k = {len(_grupos_exp_s11)} folds, n = {len(df_s5)}")
 
     sns.boxplot(data=df_s5, x='Fold/Mosaic', y='RMSE_Body_cm', hue='Fold/Mosaic', ax=ax1,
                 palette='light:gray', showfliers=False, legend=False)
     sns.swarmplot(data=df_s5, x='Fold/Mosaic', y='RMSE_Body_cm', ax=ax1, color='black', size=6)
     ax1.set_title('Mid-body RMSE, Full vs Held-out DLC')
     ax1.set_ylabel('RMSE, full vs held-out network (cm)')
-    _p_txt_rmse_s11 = '< 0.0001' if _p_rmse_s11 < 0.0001 else f'= {_p_rmse_s11:.4f}'
-    ax1.text(0.98, 0.97, f'Kruskal-Wallis p {_p_txt_rmse_s11}', transform=ax1.transAxes,
-             ha='right', va='top', fontsize=10, style='italic',
-             bbox=dict(facecolor='white', edgecolor='none', alpha=0.85, pad=2))
 
     sns.boxplot(data=df_s5, x='Fold/Mosaic', y='Total_Exp_Heldout_s', hue='Fold/Mosaic', ax=ax2,
                 palette='light:gray', showfliers=False, legend=False)
     sns.swarmplot(data=df_s5, x='Fold/Mosaic', y='Total_Exp_Heldout_s', ax=ax2, color='black', size=6)
     ax2.set_title('Total Exploration Time, Held-out DLC')
     ax2.set_ylabel('Held-out DLC exploration time (s)')
-    _p_txt_exp_s11 = '< 0.0001' if _p_exp_s11 < 0.0001 else f'= {_p_exp_s11:.4f}'
-    ax2.text(0.98, 0.97, f'Kruskal-Wallis p {_p_txt_exp_s11}', transform=ax2.transAxes,
-             ha='right', va='top', fontsize=10, style='italic',
-             bbox=dict(facecolor='white', edgecolor='none', alpha=0.85, pad=2))
 
     figS11.subplots_adjust(top=0.86)
     _rotular_painel_com_borda(figS11, ax1, 'A', fontsize=16)
